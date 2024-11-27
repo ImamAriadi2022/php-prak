@@ -1,6 +1,6 @@
 <?php 
-# datadelete.php 
-require_once 'dbconfig.php'; 
+# buattable.php 
+require_once 'perc14.php'; 
  
 try { 
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, 
@@ -11,23 +11,19 @@ try {
                    ); 
  
     $handle = $conn->prepare(" 
-        DELETE FROM mahasiswa 
-        WHERE ID=:id 
+        CREATE TABLE mahasiswa ( 
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
+        nama VARCHAR(30) NOT NULL, 
+        npm VARCHAR(10) NOT NULL, 
+        tanggal_tercatat TIMESTAMP 
+        ) 
     "); 
-     
-    $dataID = 17; 
-     
-    $handle->bindParam(':id', $dataID, PDO::PARAM_INT); 
      
     $handle->execute(); 
      
-    if($handle->rowCount()){ 
-        echo "Data berhasil dihapus. ID: " . $dataID . "<br/>"; 
-    } else { 
-        echo "Data (mungkin) tidak ada. <br/>"; 
-    } 
+    echo "Tabel berhasil dibuat."; 
 }  
 catch (PDOException $pe) { 
-    die("Data gagal dihapus: " . $pe->getMessage()); 
+    die("Tabel gagal dibuat: " . $pe->getMessage()); 
 } 
 ?>

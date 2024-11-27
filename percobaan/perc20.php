@@ -1,6 +1,6 @@
 <?php 
 # datafilter.php 
-require_once 'dbconfig.php'; 
+require_once 'perc14.php'; 
  
 try { 
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password, 
@@ -15,8 +15,8 @@ $handle = $conn->prepare("
     WHERE ID > :id LIMIT :limit 
 "); 
  
-$dataID = 2; 
-$jumlahData = 3; 
+$dataID = 1; 
+$jumlahData = 2; 
  
 $handle->bindParam(':id', $dataID, PDO::PARAM_INT); 
 $handle->bindParam(':limit', $jumlahData, PDO::PARAM_INT); 

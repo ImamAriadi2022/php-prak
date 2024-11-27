@@ -6,7 +6,7 @@ $hasil = '';
 if($_GET) { 
 $dataNama = (isset($_GET['nama']) ? $_GET['nama'] : NULL); 
 $dataNPM = (isset($_GET['npm']) ? $_GET['npm'] : NULL); 
-require_once 'dbconfig.php'; 
+require_once 'perc14.php'; 
 try { 
 $conn=new PDO("mysql:host=$host;dbname=$dbname",$username,$password, 
 array( 
