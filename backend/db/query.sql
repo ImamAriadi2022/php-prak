@@ -18,4 +18,4 @@ CREATE TABLE users (
 );
 
 -- Tambahkan user admin
-INSERT INTO users (username, password) VALUES ('admin', PASSWORD('admin123'));
+INSERT INTO users (username, password) VALUES ('imam', PASSWORD('imam123'));
